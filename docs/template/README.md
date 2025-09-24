@@ -1,4 +1,4 @@
-# {project-name}
+# プロジェクト名
 
 ## 概要
 
@@ -29,9 +29,8 @@ npm start
 ### 構築
 
 ```bash
-claude mcp add github npx @modelcontextprotocol/server-github -e GITHUB_PERSONAL_ACCESS_TOKEN=xxxxxxxxxxxxxxx
-claude mcp add --transport http byterover-mcp --scope user https://mcp.byterover.dev/v2/mcp
-claude mcp add github npx -y @modelcontextprotocol/server-github -s project  
+npm init -y
+npm install --save-dev browser-sync jest @babel/core @babel/cli @babel/preset-env @babel/register
 ```
 
 **[⬆ back to top](#構成)**

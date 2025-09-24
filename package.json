@@ -1,0 +1,31 @@
+{
+  "name": "",
+  "version": "0.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp dev",
+    "journal": "gulp journal:generate",
+    "docs:serve": "gulp mkdocs:serve",
+    "docs:stop": "gulp mkdocs:stop",
+    "docs:build": "gulp mkdocs:build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/k2works/{project_name}.git"
+  },
+  "keywords": [
+    "ai",
+    "programming",
+    "learning"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/k2works/{project_name}/issues"
+  },
+  "homepage": "https://github.com/k2works/{project_name}#readme",
+  "type": "module",
+  "dependencies": {
+    "gulp": "^5.0.0"
+  }
+}
