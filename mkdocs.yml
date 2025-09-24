@@ -1,8 +1,8 @@
-site_name: Site Name
-site_description: Site Description
-site_author: Project Team
-repo_url: https://github.com/k2works/claude-code-booster
-repo_name: claude-code-booster
+site_name: AdventureWorks 購買管理システム
+site_description: Clean Architecture と Domain-Driven Design を採用したWPF業務アプリケーション
+site_author: WpfArchitecture2022 Team
+repo_url: https://github.com/k2works/WpfArchitecture2022
+repo_name: WpfArchitecture2022
 
 theme:
   name: material
@@ -56,4 +56,94 @@ plugins:
   - search
 
 nav:
-  - Home: index.md
+  - ホーム: index.md
+  - 要件定義:
+    - 要件定義概要: requirements/requirements_definition.md
+    - ビジネスユースケース: requirements/business_usecase.md
+    - システムユースケース: requirements/system_usecase.md
+    - ユーザーストーリー: requirements/user_story.md
+  - 設計:
+    - 技術スタック: design/tech_stack.md
+    - バックエンドアーキテクチャ: design/architecture_backend.md
+    - フロントエンドアーキテクチャ: design/architecture_frontend.md
+    - データモデル: design/data-model.md
+    - ドメインモデル: design/domain-model.md
+    - UI設計: design/ui_design.md
+    - テスト戦略: design/test_strategy.md
+    - 非機能要件: design/non-functional.md
+    - 運用要件: design/operation.md
+  - リファレンス:
+    - よいソフトウェアとは: reference/よいソフトウェアとは.md
+    - 開発ガイド: reference/開発ガイド.md
+    - アーキテクチャ設計ガイド: reference/アーキテクチャ設計ガイド.md
+    - データモデル設計ガイド: reference/データモデル設計ガイド.md
+    - ドメインモデル設計ガイド: reference/ドメインモデル設計ガイド.md
+    - UI設計ガイド: reference/UI設計ガイド.md
+    - テスト戦略ガイド: reference/テスト戦略ガイド.md
+    - ユースケース作成ガイド: reference/ユースケース作成ガイド.md
+    - 要件定義ガイド: reference/要件定義ガイド.md
+    - 非機能要件定義ガイド: reference/非機能要件定義ガイド.md
+    - 運用要件定義ガイド: reference/運用要件定義ガイド.md
+    - エクストリームプログラミング: reference/エクストリームプログラミング.md
+    - リリース・イテレーション計画ガイド: reference/リリース・イテレーション計画ガイド.md
+  - 開発日誌:
+    - 2025年9月: journal/20250924.md
+    - 2023年5月:
+      - 05/08: journal/20230508.md
+      - 05/07: journal/20230507.md
+      - 05/06: journal/20230506.md
+      - 05/05: journal/20230505.md
+      - 05/01: journal/20230501.md
+    - 2023年4月:
+      - 04/29: journal/20230429.md
+      - 04/28: journal/20230428.md
+      - 04/27: journal/20230427.md
+      - 04/24: journal/20230424.md
+      - 04/23: journal/20230423.md
+      - 04/18: journal/20230418.md
+      - 04/16: journal/20230416.md
+      - 04/15: journal/20230415.md
+      - 04/14: journal/20230414.md
+      - 04/13: journal/20230413.md
+      - 04/12: journal/20230412.md
+      - 04/11: journal/20230411.md
+      - 04/09: journal/20230409.md
+      - 04/08: journal/20230408.md
+      - 04/07: journal/20230407.md
+      - 04/06: journal/20230406.md
+      - 04/04: journal/20230404.md
+      - 04/03: journal/20230403.md
+      - 04/02: journal/20230402.md
+    - 2023年3月:
+      - 03/27: journal/20230327.md
+      - 03/26: journal/20230326.md
+      - 03/25: journal/20230325.md
+      - 03/14: journal/20230314.md
+      - 03/12: journal/20230312.md
+      - 03/11: journal/20230311.md
+      - 03/09: journal/20230309.md
+      - 03/05: journal/20230305.md
+      - 03/04: journal/20230304.md
+      - 03/03: journal/20230303.md
+      - 03/02: journal/20230302.md
+      - 03/01: journal/20230301.md
+    - 2023年2月:
+      - 02/28: journal/20230228.md
+      - 02/27: journal/20230227.md
+      - 02/26: journal/20230226.md
+    - 2023年1月:
+      - 01/18: journal/20230118.md
+      - 01/13: journal/20230113.md
+      - 01/12: journal/20230112.md
+      - 01/11: journal/20230111.md
+      - 01/10: journal/20230110.md
+      - 01/09: journal/20230109.md
+      - 01/07: journal/20230107.md
+      - 01/05: journal/20230105.md
+      - 01/04: journal/20230104.md
+      - 01/03: journal/20230103.md
+    - 2022年12月:
+      - 12/02: journal/20221202.md
+    - 2022年11月:
+      - 11/11: journal/20221111.md
+      - 11/10: journal/20221110.md
