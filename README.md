@@ -1,51 +1,78 @@
-# {project-name}
+# 2022年版実践WPF業務アプリケーションのアーキテクチャ ～ドメイン駆動設計＆Clean Architectureとともに～
 
-## 概要
+## はじめに
 
-### 目的
+本リポジトリーは、CodeZine様に掲載いただいた「2022年版実践WPF業務アプリケーションのアーキテクチャ ～ドメイン駆動設計＆Clean Architectureとともに～」の記事内で使用したサンプルコードです。
 
-### 前提
+- [見積編](https://codezine.jp/article/detail/16953)
+- [設計編／前編](https://codezine.jp/article/detail/17633)
+- [設計編／後編](https://codezine.jp/article/detail/17633)
 
-| ソフトウェア | バージョン | 備考 |
-| :----------- | :--------- | :--- |
-| nodejs       | 12.12.0    |      |
+本リポジトリーはGrapeCity様から下記の評価版ライセンスを提供いただくことで、実際に動作します。
 
-## 構成
+ぜひ掲載の記事とあわせて実際に動作させてみてください。
 
-- [構築](#構築)
-- [配置](#配置)
-- [運用](#運用)
-- [開発](#開発)
+## コードへの指摘や質問について
 
-## 詳細
+より良いコードへの改善案や質問は、いつでも受け付けております。ぜひIssueにてご連絡ください。
 
-### Qick Start
+## 動作環境
 
-```bash
-npm install
-npm start
+下記の環境で動作を確認しています。
+
+* Visual Studio 2022 Version 17.4.0+
+* Docker Desktop 4.14.0
+* Docker version 20.10.20
+* SQL Server 2022-latest(on Docker)
+* [ComponentOne for WPF Edition 2022v2](https://www.grapecity.co.jp/developer/componentone/wpf)
+* [SPREAD for WPF 4.0J](https://www.grapecity.co.jp/developer/spread-wpf)
+* .NET 6.0.11
+* PowerShell Core
+
+## 事前準備
+
+下記の製品のページの「トライアル版」からライセンスを申請し、コンポーネントをインストールして、トライアルライセンスを有効化してください。
+
+* [ComponentOne for WPF Edition 2022v2](https://www.grapecity.co.jp/developer/componentone/wpf)
+* [SPREAD for WPF 4.0J](https://www.grapecity.co.jp/developer/spread-wpf)
+
+## 動作手順
+
+以下はPowerShell Coreから実行してください。
+
+リポジトリーをクローンして、ディレクトリを移動する。
+
+```powershell
+git clone https://github.com/nuitsjp/WpfArchitecture2022.git
+cd WpfArchitecture2022
 ```
 
-### 構築
+SQL Serverコンテナーをビルドして起動します。
 
-```bash
-claude mcp add github npx @modelcontextprotocol/server-github -e GITHUB_PERSONAL_ACCESS_TOKEN=xxxxxxxxxxxxxxx
-claude mcp add --transport http byterover-mcp --scope user https://mcp.byterover.dev/v2/mcp
-claude mcp add github npx -y @modelcontextprotocol/server-github -s project  
+```powershell
+.\Start-Dev.ps1
 ```
 
-**[⬆ back to top](#構成)**
+Visual Studioでソリューションを開きます。UIから開いても、もちろん問題ありません。
 
-### 配置
+```powershell
+.\Source\AdventureWorks.sln
+```
 
-**[⬆ back to top](#構成)**
+下記の手順でスタートアッププロジェクトを構成します。
 
-### 運用
+1. ソリューションを右クリックし「スタートアッププロジェクトの構成」を選択
+2. 「マルチスタートアップ プロジェクト」を選択
+3. 下記のプロジェクトを「開始」に変更
+   1. AdventureWorks.Authentication.Jwt.Hosting.Rest
+   2. AdventureWorks.Business.Purchasing.Hosting.MagicOnion
+   3. AdventureWorks.Business.Purchasing.Hosting.Wpf
+   4. AdventureWorks.Logging.Hosting.MagicOnion
 
-**[⬆ back to top](#構成)**
+あとはF5で実行してください。
 
-### 開発
+最後に、SQL Serverを停止して終了します。
 
-**[⬆ back to top](#構成)**
-
-## 参照
+```powershell
+.\Stop-Dev.ps1
+```
