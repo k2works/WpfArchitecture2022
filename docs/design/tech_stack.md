@@ -27,7 +27,7 @@ note right of WPF_Client
   • MVVM パターン
   • Kamishibai ナビゲーション
   • CommunityToolkit.Mvvm
-  • GcSpreadGrid
+  • DataGrid (標準)
 end note
 
 note right of MagicOnion_Server
@@ -51,12 +51,12 @@ end note
 
 | カテゴリ | 技術 | バージョン | 役割・用途 | 採用理由 |
 |---------|------|----------|-----------|-----------|
-| **UI フレームワーク** | WPF | .NET 8.0 | デスクトップ UI | リッチなデスクトップアプリケーション構築 |
+| **UI フレームワーク** | WPF | .NET 9.0 | デスクトップ UI | リッチなデスクトップアプリケーション構築 |
 | **アーキテクチャパターン** | MVVM | - | UI とビジネスロジックの分離 | テスタビリティとメンテナビリティ向上 |
-| **MVVM ライブラリ** | CommunityToolkit.Mvvm | 8.x | MVVM パターンの実装支援 | 標準的で軽量な MVVM 実装 |
+| **MVVM ライブラリ** | CommunityToolkit.Mvvm | 9.x | MVVM パターンの実装支援 | 標準的で軽量な MVVM 実装 |
 | **ナビゲーション** | Kamishibai | 3.x | 画面遷移管理 | MVVM に適したナビゲーション機能 |
-| **データ表示** | GcSpreadGrid | - | 高機能データグリッド | Excel ライクな操作性 |
-| **依存性注入** | Microsoft.Extensions.DI | 8.x | DI コンテナ | 疎結合とテスタビリティ |
+| **データ表示** | DataGrid (標準) | - | データグリッド表示 | WPF 標準コントロール |
+| **依存性注入** | Microsoft.Extensions.DI | 9.x | DI コンテナ | 疎結合とテスタビリティ |
 | **ログ** | Serilog | 3.x | 構造化ログ | 高機能なログ出力 |
 | **デプロイメント** | ClickOnce | - | アプリケーション配布 | 自動更新機能 |
 
@@ -70,7 +70,7 @@ end note
 | **パターン** | CQRS | - | コマンドとクエリの分離 | 読み取り・更新の最適化 |
 | **パターン** | Repository | - | データアクセス抽象化 | データアクセス層の疎結合 |
 | **パターン** | Unit of Work | - | トランザクション管理 | データ整合性の確保 |
-| **ランタイム** | .NET 8.0 | 8.x | アプリケーション実行環境 | 高性能と最新機能 |
+| **ランタイム** | .NET 9.0 | 9.x | アプリケーション実行環境 | 高性能と最新機能 |
 | **ログ** | Serilog | 3.x | 構造化ログ | 高機能なログ出力 |
 
 ### データベース
@@ -86,7 +86,7 @@ end note
 
 | カテゴリ | 技術 | バージョン | 役割・用途 | 採用理由 |
 |---------|------|----------|-----------|-----------|
-| **テストフレームワーク** | NUnit | 3.13.x | 単体・統合テスト | .NET 標準テストフレームワーク |
+| **テストフレームワーク** | xUnit | 2.9.x | 単体・統合テスト | .NET 標準テストフレームワーク |
 | **アサーション** | FluentAssertions | 6.x | 読みやすいアサーション | テストコードの可読性向上 |
 | **モック** | Moq | 4.x | モッキング | 依存関係の分離 |
 | **UI テスト** | Codeer.Friendly | - | WPF UI 自動化 | Page Object Pattern |
@@ -243,6 +243,66 @@ end note
 - **エラー**: 例外発生率、エラーログ
 - **リソース**: CPU、メモリ、ディスク使用量
 
+## プロジェクト構成
+
+本プロジェクトは以下のディレクトリ構成を採用しています。これは Clean Architecture + Domain-Driven Design を C# ソリューション構成で表現したものです。
+
+### ソリューション構成図
+
+```plantuml
+@startuml
+package "Source/" {
+  package "AdventureWorks.sln" {
+    package "Hosting Layer" {
+      [AdventureWorks.Hosting]
+      [AdventureWorks.Hosting.MagicOnion.Server]
+      [AdventureWorks.Hosting.Rest]
+      [AdventureWorks.Hosting.Wpf]
+    }
+
+    package "Presentation Layer" {
+      [AdventureWorks.Wpf.View]
+      [AdventureWorks.Wpf.ViewModel]
+    }
+
+    package "Application Layer" {
+      [AdventureWorks.Business]
+      [AdventureWorks.Business.MagicOnion]
+      [AdventureWorks.Business.Purchasing]
+      [AdventureWorks.Business.Purchasing.MagicOnion]
+    }
+
+    package "Domain Layer" {
+      [AdventureWorks.Business.Purchasing.RePurchasing]
+      [AdventureWorks.Business.Purchasing.Menu.ViewModel]
+      [AdventureWorks.Business.Purchasing.RePurchasing.ViewModel]
+      [AdventureWorks.Business.Purchasing.ViewModel]
+    }
+
+    package "Infrastructure Layer" {
+      [AdventureWorks.Business.Purchasing.SqlServer]
+      [AdventureWorks.Business.Purchasing.RePurchasing.SqlServer]
+      [AdventureWorks.Business.SqlServer]
+      [AdventureWorks.Database]
+    }
+
+    package "Communication Layer" {
+      [AdventureWorks.MagicOnion.Client]
+      [AdventureWorks.MagicOnion.Server]
+      [AdventureWorks.Business.Purchasing.MagicOnion.Client]
+      [AdventureWorks.Business.Purchasing.MagicOnion.Server]
+    }
+
+    package "Cross-Cutting Concerns" {
+      [AdventureWorks.Authentication]
+      [AdventureWorks.Logging]
+      [AdventureWorks.Logging.Serilog]
+      [AdventureWorks.System]
+    }
+  }
+}
+@enduml
+```
 ## まとめ
 
 本技術スタックは以下の原則に基づいて選定されています：

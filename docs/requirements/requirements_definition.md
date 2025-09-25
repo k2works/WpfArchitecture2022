@@ -460,26 +460,26 @@ title 情報モデル図 - AdventureWorks 購買管理システム
 left to right direction
 
 ' 購買関連
-entity 発注(PurchaseOrder)
-entity 発注明細(PurchaseOrderDetail)
-entity ベンダー(Vendor)
-entity ベンダー製品(VendorProduct)
+entity 発注
+entity 発注明細
+entity ベンダー
+entity ベンダー製品
 
 ' 製品関連
-entity 製品(Product)
-entity 製品カテゴリ(ProductCategory)
-entity 製品サブカテゴリ(ProductSubcategory)
+entity 製品
+entity 製品カテゴリ
+entity 製品サブカテゴリ
 
 ' 在庫・再発注関連
-entity 要再発注製品(RequiringPurchaseProduct)
-entity 在庫情報(Inventory)
+entity 要再発注製品
+entity 在庫情報
 
 ' 配送関連
-entity 配送方法(ShipMethod)
+entity 配送方法
 
 ' ユーザー関連
-entity 従業員(Employee)
-entity ユーザー(User)
+entity 従業員
+entity ユーザー
 
 ' 関連付け
 発注 "1" -- "*" 発注明細
