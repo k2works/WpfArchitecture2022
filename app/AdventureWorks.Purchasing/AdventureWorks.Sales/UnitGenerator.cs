@@ -1,18 +1,13 @@
+using System;
 using UnitGenerator;
 
 namespace AdventureWorks.Sales
 {
-
     /// <summary>
-    /// ID of Unit
+    /// ID of User
     /// </summary>
-    [UnitOf(typeof(int), UnitGenerateOptions.Validate, "{0:###,###,###}")]
+    [UnitOf(typeof(int), UnitGenerateOptions.DapperTypeHandler)]
     public partial struct UserId
     {
-        private partial void Validate()
-        {
-            if (value < 20 is false) throw new Exception($"Invalid value range: {value}");
-        }
     }
-
 }

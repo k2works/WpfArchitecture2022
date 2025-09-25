@@ -1,14 +1,37 @@
+using System;
 using UnitGenerator;
 
 namespace AdventureWorks.Purchasing
 {
-
     /// <summary>
-    /// ID of Unit
+    /// ID of PurchaseOrder
     /// </summary>
-    [UnitOf(typeof(int), UnitGenerateOptions.None)]
-    public readonly partial struct UserId
+    [UnitOf(typeof(int), UnitGenerateOptions.DapperTypeHandler)]
+    public partial struct PurchaseOrderId
     {
     }
 
+    /// <summary>
+    /// ID of PurchaseOrderDetail
+    /// </summary>
+    [UnitOf(typeof(int), UnitGenerateOptions.DapperTypeHandler)]
+    public partial struct PurchaseOrderDetailId
+    {
+    }
+
+    /// <summary>
+    /// ID of Vendor
+    /// </summary>
+    [UnitOf(typeof(int), UnitGenerateOptions.DapperTypeHandler)]
+    public partial struct VendorId
+    {
+    }
+
+    /// <summary>
+    /// ID of ShipMethod
+    /// </summary>
+    [UnitOf(typeof(int), UnitGenerateOptions.DapperTypeHandler)]
+    public partial struct ShipMethodId
+    {
+    }
 }

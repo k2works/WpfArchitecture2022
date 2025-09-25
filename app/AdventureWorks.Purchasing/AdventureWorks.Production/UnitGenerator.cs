@@ -1,18 +1,45 @@
+using System;
 using UnitGenerator;
 
 namespace AdventureWorks.Production
 {
-
     /// <summary>
-    /// ID of Unit
+    /// ID of Product
     /// </summary>
-    [UnitOf(typeof(int), UnitGenerateOptions.Validate, "{0:###,###,###}")]
-    public partial struct UserId
+    [UnitOf(typeof(int), UnitGenerateOptions.DapperTypeHandler)]
+    public partial struct ProductId
     {
-        private partial void Validate()
-        {
-            if (value < 20 is false) throw new Exception($"Invalid value range: {value}");
-        }
     }
 
+    /// <summary>
+    /// ID of ProductCategory
+    /// </summary>
+    [UnitOf(typeof(int), UnitGenerateOptions.DapperTypeHandler)]
+    public partial struct ProductCategoryId
+    {
+    }
+
+    /// <summary>
+    /// ID of ProductSubcategory
+    /// </summary>
+    [UnitOf(typeof(int), UnitGenerateOptions.DapperTypeHandler)]
+    public partial struct ProductSubcategoryId
+    {
+    }
+
+    /// <summary>
+    /// Code of UnitMeasure
+    /// </summary>
+    [UnitOf(typeof(string), UnitGenerateOptions.DapperTypeHandler)]
+    public partial struct UnitMeasureCode
+    {
+    }
+
+    /// <summary>
+    /// Weight in gram
+    /// </summary>
+    [UnitOf(typeof(decimal), UnitGenerateOptions.ArithmeticOperator | UnitGenerateOptions.DapperTypeHandler)]
+    public partial struct Gram
+    {
+    }
 }
