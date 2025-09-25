@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<ItemGroup>
-	  <PackageReference Include="CommunityToolkit.Mvvm" />
-	  <PackageReference Include="Kamishibai" />
+	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
+	  <PackageReference Include="Kamishibai" Version="2.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
