@@ -1,5 +1,0 @@
-Type,BaseType,Description,Validate,JsonConverter,MessagePackFormatter,DapperTypeHandler,EntityFrameworkValueConverter,ParseMethod,MinMethod,MaxMethod,ArithmeticOperator,ValueArithmeticOperator,Comparable,Formattable,StringComparison,ImplicitOperator,Operator,ToStringFormat
-PurchaseOrderId,int,ID of PurchaseOrder,,,,,,,,,,,✅,
-PurchaseOrderDetailId,int,ID of PurchaseOrderDetail,,,,,,,,,,,✅,
-VendorId,int,ID of Vendor,,,,,,,,,,,✅,
-ShipMethodId,int,ID of ShipMethod,,,,,,,,,,,✅,,

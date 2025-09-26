@@ -7,7 +7,7 @@ namespace AdventureWorks.Sales
     /// ID of Unit
     /// </summary>
     [UnitOf(typeof(int), UnitGenerateOptions.Validate)]
-    public partial struct UserId
+    public readonly partial struct UserId
     {
         private partial void Validate()
         {

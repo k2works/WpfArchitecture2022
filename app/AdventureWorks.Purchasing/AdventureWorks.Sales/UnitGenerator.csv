@@ -1,2 +1,0 @@
-Type,BaseType,Description,Validate,JsonConverter,MessagePackFormatter,DapperTypeHandler,EntityFrameworkValueConverter,ParseMethod,MinMethod,MaxMethod,ArithmeticOperator,ValueArithmeticOperator,Comparable,Formattable,StringComparison,ImplicitOperator,Operator,ToStringFormat
-UserId,int,ID of User,,,,,,,,,,,✅,,
