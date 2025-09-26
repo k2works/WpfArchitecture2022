@@ -18,7 +18,45 @@ do
     fi
 done
 
+# Check if AdventureWorks database exists and is accessible
+for i in {1..10};
+do
+    /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P P@ssw0rd! -d master -Q "SELECT name FROM sys.databases WHERE name = 'AdventureWorks'"
+    if [ $? -eq 0 ]
+    then
+        echo "AdventureWorks database is accessible"
+        break
+    else
+        echo "waiting for AdventureWorks database..."
+        sleep 2
+    fi
+done
+
+# Execute additional scripts
 /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P P@ssw0rd! -d master -i ./01_serilog.sql
+if [ $? -eq 0 ]; then
+    echo "01_serilog.sql completed successfully"
+else
+    echo "01_serilog.sql failed"
+fi
+
 /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P P@ssw0rd! -d master -i ./02_adventure_works.sql
+if [ $? -eq 0 ]; then
+    echo "02_adventure_works.sql completed successfully"
+else
+    echo "02_adventure_works.sql failed"
+fi
+
 /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P P@ssw0rd! -d master -i ./03_purchasing.sql
+if [ $? -eq 0 ]; then
+    echo "03_purchasing.sql completed successfully"
+else
+    echo "03_purchasing.sql failed"
+fi
+
 /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P P@ssw0rd! -d master -i ./04_re_purchasing.sql
+if [ $? -eq 0 ]; then
+    echo "04_re_purchasing.sql completed successfully"
+else
+    echo "04_re_purchasing.sql failed"
+fi
