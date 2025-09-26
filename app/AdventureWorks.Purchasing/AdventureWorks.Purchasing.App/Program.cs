@@ -1,12 +1,16 @@
-﻿using System.Windows.Controls;
+﻿using AdventureWorks.Purchasing.UseCase.Database.RePurchasing;
+using AdventureWorks.Purchasing.UseCase.RePurchasing;
 using AdventureWorks.Purchasing.View;
-using AdventureWorks.Purchasing.View.Page;
+using AdventureWorks.Purchasing.View.Menu;
 using AdventureWorks.Purchasing.View.RePurchasing;
 using AdventureWorks.Purchasing.ViewModel;
 using AdventureWorks.Purchasing.ViewModel.Menu;
 using AdventureWorks.Purchasing.ViewModel.RePurchasing;
 using Kamishibai;
-using Microsoft.Extensions.Hosting;
+
+AdventureWorks.Database.TypeHandlerInitializer.Initialize();
+AdventureWorks.Purchasing.Database.TypeHandlerInitializer.Initialize();
+AdventureWorks.Purchasing.Database.Production.TypeHandlerInitializer.Initialize();
 
 // Create a builder by specifying the application and main window.
 var builder = KamishibaiApplication<App, MainWindow>.CreateBuilder();
@@ -15,6 +19,7 @@ builder.Services.AddPresentation<MainWindow, MainViewModel>();
 builder.Services.AddPresentation<MenuPage, MenuViewModel>();
 
 builder.Services.AddPresentation<RequiringPurchaseProductsPage, RequiringPurchaseProductsViewModel>();
+builder.Services.AddTransient<IRePurchasingService, RePurchasingService>();
 
 // Build and run the application.
 var app = builder.Build();

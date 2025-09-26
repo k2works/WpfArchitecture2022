@@ -1,4 +1,4 @@
-﻿using AdventureWorks.Production;
+﻿using AdventureWorks.Purchasing.Production;
 
 namespace AdventureWorks.Purchasing;
 
@@ -19,16 +19,16 @@ public record PurchaseOrderDetail
     /// <param name="stockedQuantity"></param>
     /// <param name="modifiedDateTime"></param>
     public PurchaseOrderDetail(
-        PurchaseOrderId purchaseOrderId,
+        PurchaseOrderId purchaseOrderId, 
         PurchaseOrderDetailId purchaseOrderDetailId,
-        Date dueDate,
-        short orderQuantity,
-        ProductId productId,
-        Money unitPrice,
-        Money lineTotal,
-        decimal receiveQuantity,
-        decimal rejectedQuantity,
-        decimal stockedQuantity,
+        Date dueDate, 
+        short orderQuantity, 
+        ProductId productId, 
+        Dollar unitPrice, 
+        Dollar lineTotal, 
+        decimal receiveQuantity, 
+        decimal rejectedQuantity, 
+        decimal stockedQuantity, 
         ModifiedDateTime modifiedDateTime)
     {
         PurchaseOrderId = purchaseOrderId;
@@ -54,7 +54,7 @@ public record PurchaseOrderDetail
     public PurchaseOrderDetail(
         Date dueDate,
         ProductId productId,
-        Money unitPrice,
+        Dollar unitPrice,
         short orderQuantity) :
         this(
             PurchaseOrderId.Unregistered,
@@ -71,16 +71,16 @@ public record PurchaseOrderDetail
     {
     }
 
-    public PurchaseOrderId PurchaseOrderId { get; }
-    public PurchaseOrderDetailId PurchaseOrderDetailId { get; }
-    public Date DueDate { get; }
-    public ProductId ProductId { get; }
-    public Money UnitPrice { get; }
+    public PurchaseOrderId PurchaseOrderId  { get; }
+    public PurchaseOrderDetailId PurchaseOrderDetailId  { get; }
+    public Date DueDate  { get; }
+    public ProductId ProductId  { get; }
+    public Dollar UnitPrice  { get; }
     public short OrderQuantity { get; }
-    public Money LineTotal { get; }
-    public decimal ReceiveQuantity { get; }
-    public decimal RejectedQuantity { get; }
-    public decimal StockedQuantity { get; }
-    public ModifiedDateTime ModifiedDateTime { get; }
+    public Dollar LineTotal  { get; }
+    public decimal ReceiveQuantity  { get; }
+    public decimal RejectedQuantity  { get; }
+    public decimal StockedQuantity  { get; }
+    public ModifiedDateTime ModifiedDateTime  { get; }
 
 }

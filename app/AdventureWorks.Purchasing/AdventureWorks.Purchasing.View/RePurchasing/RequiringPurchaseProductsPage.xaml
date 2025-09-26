@@ -4,9 +4,47 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AdventureWorks.Purchasing.View.RePurchasing"
+             d:DataContext="{d:DesignInstance {x:Type local:RequiringPurchaseProductsDesignViewModel}, IsDesignTimeCreatable=True}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <TextBlock Text="RequiringPurchaseProductsPage"></TextBlock>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right">
+            <Button Content="キャンセル"
+                    Style="{StaticResource NegativeButton}"
+                    Command="{Binding GoBackCommand}"/>
+            <Button Content="発注"
+                    Style="{StaticResource PositiveButton}"/>
+        </StackPanel>
+        <DataGrid Grid.Row="1"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            AutoGenerateColumns="False"
+            ItemsSource="{Binding RequiringPurchaseProducts}"
+            IsReadOnly="True"
+            GridLinesVisibility="All"
+            AlternatingRowBackground="LightGray"
+            CanUserResizeColumns="True"
+            CanUserSortColumns="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ベンダー名" Binding="{Binding VendorName}" Width="150"/>
+                <DataGridTextColumn Header="カテゴリ名" Binding="{Binding ProductCategoryName}" Width="120"/>
+                <DataGridTextColumn Header="サブカテゴリ名" Binding="{Binding ProductSubcategoryName}" Width="140"/>
+                <DataGridTextColumn Header="製品名" Binding="{Binding ProductName}" Width="200"/>
+                <DataGridTextColumn Header="購入数量" Binding="{Binding PurchasingQuantity}" Width="100"/>
+                <DataGridTextColumn Header="単価" Binding="{Binding UnitPrice, StringFormat=C}" Width="100"/>
+                <DataGridTextColumn Header="小計" Binding="{Binding LineTotal, StringFormat=C}" Width="100"/>
+                <DataGridTextColumn Header="出荷予定日数" Binding="{Binding ShipmentResponseDays}" Width="120"/>
+                <DataGridTextColumn Header="平均リードタイム" Binding="{Binding AverageLeadTime}" Width="140"/>
+                <DataGridTextColumn Header="在庫数量" Binding="{Binding InventoryQuantity}" Width="100"/>
+                <DataGridTextColumn Header="未請求購入数量" Binding="{Binding UnclaimedPurchaseQuantity}" Width="140"/>
+                <DataGridTextColumn Header="平均日次出荷数量" Binding="{Binding AverageDailyShipmentQuantity}" Width="160"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </UserControl>

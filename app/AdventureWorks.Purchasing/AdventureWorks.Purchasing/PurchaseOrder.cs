@@ -20,19 +20,19 @@ public class PurchaseOrder
     /// <param name="modifiedDateTime"></param>
     /// <param name="details"></param>
     public PurchaseOrder(
-        PurchaseOrderId id,
-        RevisionNumber revisionNumber,
-        OrderStatus status,
-        EmployeeId employeeId,
-        VendorId vendorId,
+        PurchaseOrderId id, 
+        RevisionNumber revisionNumber, 
+        OrderStatus status, 
+        EmployeeId employeeId, 
+        VendorId vendorId, 
         ShipMethodId shipMethodId,
-        DateTime orderDate,
-        DateTime? shipDate,
-        Money subTotal,
-        Money taxAmount,
-        Money freight,
-        Money totalDue,
-        ModifiedDateTime modifiedDateTime,
+        Date orderDate,
+        Date? shipDate, 
+        Dollar subTotal, 
+        Dollar taxAmount, 
+        Dollar freight, 
+        Dollar totalDue, 
+        ModifiedDateTime modifiedDateTime, 
         IReadOnlyList<PurchaseOrderDetail> details)
     {
         Id = id;
@@ -66,50 +66,42 @@ public class PurchaseOrder
         EmployeeId employeeId,
         VendorId vendorId,
         ShipMethodId shipMethodId,
-        DateTime orderDate,
-        Money subTotal,
-        Money taxAmount,
-        Money freight,
+        Date orderDate,
+        Dollar subTotal,
+        Dollar taxAmount,
+        Dollar freight,
         IReadOnlyList<PurchaseOrderDetail> details) :
         this(
             PurchaseOrderId.Unregistered,
-            RevisionNumber.Unregistered,
-            OrderStatus.Pending,
-            employeeId,
-            vendorId,
-            shipMethodId,
-            orderDate,
-            null,
-            subTotal,
-            taxAmount,
-            freight,
-            subTotal + taxAmount + freight,
-            ModifiedDateTime.Unregistered,
+            RevisionNumber.Unregistered, 
+            OrderStatus.Pending, 
+            employeeId, 
+            vendorId, 
+            shipMethodId, 
+            orderDate, 
+            null, 
+            subTotal, 
+            taxAmount, 
+            freight, 
+            subTotal + taxAmount + freight, 
+            ModifiedDateTime.Unregistered, 
             details)
     {
     }
 
     public PurchaseOrderId Id { get; }
     public RevisionNumber RevisionNumber { get; }
-    public OrderStatus Status { get; }
+    public OrderStatus Status  { get; }
     public EmployeeId EmployeeId { get; }
     public VendorId VendorId { get; }
     public ShipMethodId ShipMethodId { get; }
-    public DateTime OrderDate { get; }
-    public DateTime? ShipDate { get; }
-    public Money SubTotal { get; }
-    public Money TaxAmount { get; }
-    public Money Freight { get; }
-    public Money TotalDue { get; }
+    public Date OrderDate { get; }
+    public Date? ShipDate { get; }
+    public Dollar SubTotal { get; }
+    public Dollar TaxAmount { get; }
+    public Dollar Freight { get; }
+    public Dollar TotalDue { get; }
     public ModifiedDateTime ModifiedDateTime { get; }
     public IReadOnlyList<PurchaseOrderDetail> Details { get; }
 
-}
-
-public class PurchaseOrderBuilder
-{
-    public PurchaseOrder Build()
-    {
-        throw new NotImplementedException();
-    }
 }
