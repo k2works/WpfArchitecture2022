@@ -6,6 +6,7 @@
 		<UseWPF>true</UseWPF>
 	</PropertyGroup>
 
+
 	<ItemGroup>
 		<PackageReference Include="Kamishibai.View" Version="2.0.0" />
 		<PackageReference Include="MahApps.Metro.IconPacks.FontAwesome" Version="5.0.0" />
@@ -14,6 +15,12 @@
 	<ItemGroup>
 		<ProjectReference Include="..\AdventureWorks.Purchasing.ViewModel\AdventureWorks.Purchasing.ViewModel.csproj" />
 		<ProjectReference Include="..\AdventureWorks.Purchasing\AdventureWorks.Purchasing.csproj" />
+		<ProjectReference Include="..\AdventureWorks.View\AdventureWorks.View.csproj" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+	  <Folder Include="Converter\" />
 	</ItemGroup>
 
 </Project>
