@@ -37,6 +37,7 @@ builder.Services.AddPresentation<MenuPage, MenuViewModel>();
 
 // 再発注
 builder.Services.AddPresentation<RequiringPurchaseProductsPage, RequiringPurchaseProductsViewModel>();
+builder.Services.AddPresentation<RePurchasingPage, RePurchasingViewModel>();
 builder.Services.AddTransient<IRePurchasingService, RePurchasingService>();
 builder.Services.AddTransient<IVendorRepository, VendorRepository>();
 
