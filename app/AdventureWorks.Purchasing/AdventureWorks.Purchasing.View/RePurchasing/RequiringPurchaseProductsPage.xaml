@@ -20,18 +20,21 @@
                     Style="{StaticResource NegativeButton}"
                     Command="{Binding GoBackCommand}"/>
             <Button Content="発注"
-                    Style="{StaticResource PositiveButton}"/>
+                    Style="{StaticResource PositiveButton}"
+                    Command="{Binding PurchaseCommand}"/>
         </StackPanel>
         <DataGrid Grid.Row="1"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
             AutoGenerateColumns="False"
             ItemsSource="{Binding RequiringPurchaseProducts}"
+            SelectedItem="{Binding SelectedRequiringPurchaseProduct}"
             IsReadOnly="True"
             GridLinesVisibility="All"
             AlternatingRowBackground="LightGray"
             CanUserResizeColumns="True"
-            CanUserSortColumns="True">
+            CanUserSortColumns="True"
+            SelectionMode="Single">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ベンダー名" Binding="{Binding VendorName}" Width="150"/>
                 <DataGridTextColumn Header="カテゴリ名" Binding="{Binding ProductCategoryName}" Width="120"/>

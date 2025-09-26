@@ -36,13 +36,24 @@ public partial class RequiringPurchaseProductsViewModel : INavigatedAsyncAware
     private Task GoBackAsync() => _presentationService.GoBackAsync();
 
     [RelayCommand(CanExecute = nameof(CanPurchaseAsync))]
-    private Task PurchaseAsync()
+    private async Task PurchaseAsync()
     {
-        throw new NotImplementedException();
+        if (SelectedRequiringPurchaseProduct is null) return;
+
+        // 選択された商品のベンダーを取得
+        var vendor = await _rePurchasingService.GetVendorAsync(SelectedRequiringPurchaseProduct.VendorId);
+
+        // 同じベンダーの全商品を取得
+        var vendorProducts = RequiringPurchaseProducts
+            .Where(p => p.VendorId.AsPrimitive() == SelectedRequiringPurchaseProduct.VendorId.AsPrimitive())
+            .ToList();
+
+        // RePurchasingページに遷移
+        await _presentationService.NavigateToRePurchasingAsync(vendor, vendorProducts);
     }
 
     private bool CanPurchaseAsync()
     {
-        return _selectedRequiringPurchaseProduct is not null;
+        return SelectedRequiringPurchaseProduct is not null;
     }
 }
